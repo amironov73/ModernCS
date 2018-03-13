@@ -1,23 +1,23 @@
-### Throw-выражения
+п»ї### Throw-РІС‹СЂР°Р¶РµРЅРёСЏ
 
-В C#, начиная с седьмой версии, можно использовать оператор throw в:
+Р’ C#, РЅР°С‡РёРЅР°СЏ СЃ СЃРµРґСЊРјРѕР№ РІРµСЂСЃРёРё, РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РѕРїРµСЂР°С‚РѕСЂ throw РІ:
 
-* тернарном операторе;
-* null-coalescing операторе;
-* лямбда-выражении;
-* теле выражений.
-#### Тернарный оператор
+* С‚РµСЂРЅР°СЂРЅРѕРј РѕРїРµСЂР°С‚РѕСЂРµ;
+* null-coalescing РѕРїРµСЂР°С‚РѕСЂРµ;
+* Р»СЏРјР±РґР°-РІС‹СЂР°Р¶РµРЅРёРё;
+* С‚РµР»Рµ РІС‹СЂР°Р¶РµРЅРёР№.
+#### РўРµСЂРЅР°СЂРЅС‹Р№ РѕРїРµСЂР°С‚РѕСЂ
 ```csharp
 var customerInfo = HasPermission()
     ? ReadCustomer()
     : throw new SecurityException("permission denied");
 ```
-#### Null-coalescing оператор
+#### Null-coalescing РѕРїРµСЂР°С‚РѕСЂ
 ```csharp
 var age = user.Age ?? 
     throw new InvalidOperationException("user age must be initialized");
 ```
-#### Выражения в теле методов
+#### Р’С‹СЂР°Р¶РµРЅРёСЏ РІ С‚РµР»Рµ РјРµС‚РѕРґРѕРІ
 ```csharp
 class ReadStream : Stream
 {
@@ -41,4 +41,4 @@ var customer = dbContext.Orders.Where(o => o.Address == address)
     .SingleOrDefault()
     ?? throw new InvalidDataException("Could not find an order");
 ```
-Ура, товарищи!
+РЈСЂР°, С‚РѕРІР°СЂРёС‰Рё!

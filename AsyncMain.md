@@ -1,4 +1,4 @@
-### Асинхронная версия Main
+п»ї### РђСЃРёРЅС…СЂРѕРЅРЅР°СЏ РІРµСЂСЃРёСЏ Main
 
 ```csharp
 static async Task Main (string[] args)

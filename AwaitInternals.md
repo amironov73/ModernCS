@@ -1,14 +1,14 @@
-### Во что разворачивается await
+п»ї### Р’Рѕ С‡С‚Рѕ СЂР°Р·РІРѕСЂР°С‡РёРІР°РµС‚СЃСЏ await
 
-Sinix пишет:
+Sinix РїРёС€РµС‚:
 
-> Код вида
+> РљРѕРґ РІРёРґР°
 ```csharp
 Report("Before await");
 var someValue = await GetSomeValueAsync();
 Report("After await: {0}", someValue);
 ```
-> компилятор превращает в нечто вроде
+> РєРѕРјРїРёР»СЏС‚РѕСЂ РїСЂРµРІСЂР°С‰Р°РµС‚ РІ РЅРµС‡С‚Рѕ РІСЂРѕРґРµ
 ```csharp
 Report("Before await");
 var awaiter = GetSomeValueAsync().GetAwaiter();
