@@ -1,6 +1,6 @@
-### CallerMemberNameAttribute
+п»ї### CallerMemberNameAttribute
 
-В .NET Framework появился замечательный атрибут CallerMemberNameAttribute, с помощью которого легко реализуются подобные трюки:
+Р’ .NET Framework РїРѕСЏРІРёР»СЃСЏ Р·Р°РјРµС‡Р°С‚РµР»СЊРЅС‹Р№ Р°С‚СЂРёР±СѓС‚ CallerMemberNameAttribute, СЃ РїРѕРјРѕС‰СЊСЋ РєРѕС‚РѕСЂРѕРіРѕ Р»РµРіРєРѕ СЂРµР°Р»РёР·СѓСЋС‚СЃСЏ РїРѕРґРѕР±РЅС‹Рµ С‚СЂСЋРєРё:
 ```csharp
 using System;
 using System.Runtime.CompilerServices;
@@ -56,14 +56,14 @@ class Program
     {
         Book book = new Book
         {
-            Author = "Пушкин, А. С.",
-            Title = "Сказка о рыбаке и рыбке"
+            Author = "РџСѓС€РєРёРЅ, Рђ. РЎ.",
+            Title = "РЎРєР°Р·РєР° Рѕ СЂС‹Р±Р°РєРµ Рё СЂС‹Р±РєРµ"
         };
     }
 }
 ```
-Как и следовало ожидать, на консоль будет выведено
+РљР°Рє Рё СЃР»РµРґРѕРІР°Р»Рѕ РѕР¶РёРґР°С‚СЊ, РЅР° РєРѕРЅСЃРѕР»СЊ Р±СѓРґРµС‚ РІС‹РІРµРґРµРЅРѕ
 ```
-Author changed to Пушкин, А. С.
-Title changed to Сказка о рыбаке и рыбке
+Author changed to РџСѓС€РєРёРЅ, Рђ. РЎ.
+Title changed to РЎРєР°Р·РєР° Рѕ СЂС‹Р±Р°РєРµ Рё СЂС‹Р±РєРµ
 ```

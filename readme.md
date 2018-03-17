@@ -2,6 +2,8 @@
 
 #### [Ссылки](Chapters/References.md)
 
+#### [История C#](Chapters/CsharpHistory.md)
+
 #### Асинхронность
 
 * [Во что разворачивается await](Chapters/AwaitInternals.md)
@@ -14,6 +16,7 @@
 * [Сопоставление с образцом](Chapters/PatternMatching.md)
 * [Throw-выражения](Chapters/ThrowExpression.md)
 * [Кортежи](Chapters/Tuples.md)
+* [Локальные функции](Chapters/LocalFunctions.md)
 
 ### C# 6
 

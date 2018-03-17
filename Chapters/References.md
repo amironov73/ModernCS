@@ -1,9 +1,9 @@
-### Ссылки
+п»ї### РЎСЃС‹Р»РєРё
 
-* [Загрузки](https://www.microsoft.com/net/download/all)
-* [Документация](https://docs.microsoft.com/en-us/dotnet/)
+* [Р—Р°РіСЂСѓР·РєРё](https://www.microsoft.com/net/download/all)
+* [Р”РѕРєСѓРјРµРЅС‚Р°С†РёСЏ](https://docs.microsoft.com/en-us/dotnet/)
 * [.NET API Browser](https://docs.microsoft.com/en-us/dotnet/api/)
-* [ASP.NET - центр](https://www.asp.net)
+* [ASP.NET - С†РµРЅС‚СЂ](https://www.asp.net)
 * [Reference Source](http://referencesource.microsoft.com/)
 * [.NET Core runtime repo](https://github.com/dotnet/coreclr)
 * [.NET Core foundational libraries](https://github.com/dotnet/corefx)

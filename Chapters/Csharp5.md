@@ -1,6 +1,6 @@
-### Новые возможности C# 5
+п»ї### РќРѕРІС‹Рµ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё C# 5
 #### async/await
-Важнейшая фича, конечно же, — async/await
+Р’Р°Р¶РЅРµР№С€Р°СЏ С„РёС‡Р°, РєРѕРЅРµС‡РЅРѕ Р¶Рµ, вЂ” async/await
 ```csharp
 async Task Demo()
 {
@@ -13,5 +13,5 @@ async Task Demo()
 }
 ```
 #### [CallerMemberNameAttribute](CallerMemberNameAttribute)
-Аналогично:
+РђРЅР°Р»РѕРіРёС‡РЅРѕ:
 CallerFilePathAttribute, CallerLineNumberAttribute
