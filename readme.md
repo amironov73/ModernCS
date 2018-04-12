@@ -30,6 +30,10 @@
 
 * [Новые возможности C# 4](Chapters/Csharp4.md)
 
+### C# 3
+
+* [Expression Trees](Chapters/ExpressionTrees.md)
+
 #### Полезные мелочи
 
 * [Span&lt;T&gt;](Chapters/Span.md)
