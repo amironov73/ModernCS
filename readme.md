@@ -36,6 +36,7 @@
 
 #### Полезные мелочи
 
+* [Rx.NET](Chapters/RxNet.md)
 * [Span&lt;T&gt;](Chapters/Span.md)
 * [TCP сервер](Chapters/TcpServer.md)
 * [CallerMemberNameAttribute](Chapters/CallerMemberNameAttribute.md)
