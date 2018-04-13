@@ -36,6 +36,10 @@
 
 #### Полезные мелочи
 
+* [Unicode и его ловушки](Chapters/Unicode.md)
+* [Рекомендации Microsoft по работе со строками в .NET](Chapters/Strings.md)
+* [Как работает using](Chapters/Using.md)
+* [Как работает foreach](Chapters/Foreach.md)
 * [Rx.NET](Chapters/RxNET.md)
 * [Span&lt;T&gt;](Chapters/Span.md)
 * [TCP сервер](Chapters/TcpServer.md)
