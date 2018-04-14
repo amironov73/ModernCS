@@ -9,6 +9,8 @@
 * [Во что разворачивается await](Chapters/AwaitInternals.md)
 * [Возвращаемые типы в async](Chapters/AsyncReturn.md)
 * [ValueTask - что это и зачем](Chapters/ValueTask.md)
+* [Почему CancellationToken — структура, отдельная от CancellationTokenSource?](Chapters/CancellationToken.md)
+* [Шаблон асинхронного кода в WinForms](Chapters/AsyncWinForms.md)
 * [Асинхронная версия Main](Chapters/AsyncMain.md)
 
 #### Прочие возможности C# 7
@@ -36,6 +38,7 @@
 
 #### Полезные мелочи
 
+* [Использование новой CLR бок о бок со старой](Chapters/SideBySide.md)
 * [Unicode и его ловушки](Chapters/Unicode.md)
 * [Рекомендации Microsoft по работе со строками в .NET](Chapters/Strings.md)
 * [Как работает using](Chapters/Using.md)
@@ -49,13 +52,18 @@
 * [Класс BlockingCollection](Chapters/BlockingCollection.md)
 * [Класс Barrier](Chapters/Barrier.md)
 * [Класс SynchronizationContext](Chapters/SynchronizationContext.md)
+* [Класс System.Threading.Volatile](Chapters/Volatile.md)
+* [Интерфейс IProgress](Chapters/IProgress.md)
 * [Rx.NET](Chapters/RxNET.md)
 * [Reactive Extensions в WinForms](Chapters/RxWinForms.md)
 * [Topshelf](Chapters/Topshelf.md)
 * [Managed Extensibility Framework](Chapters/MEF.md)
 * [Коллекции C5](Chapters/C5.md)
+* [It’s Noda Time!](Chapters/Noda.md)
+* [IKVM.NET](Chapters/IKVM.md)
 * [Запуск AnyCPU-приложения в 32-битном режиме](Chapters/Run32bit.md)
 * [Структура Span&lt;T&gt;](Chapters/Span.md)
+* [Lightweight Function в стеке вызовов](Chapters/LightweightFunction.md)
 * [TCP сервер](Chapters/TcpServer.md)
 * [Инлайнинг методов в .NET](Chapters/Inlining.md)
 * [CallerMemberNameAttribute](Chapters/CallerMemberNameAttribute.md)
