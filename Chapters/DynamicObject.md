@@ -1,17 +1,17 @@
-### DynamicObject и ExpandoObject
+п»ї### DynamicObject Рё ExpandoObject
 
-В .NET Framework 4 появилась возможность динамической типизации при помощи ключевого слова dynamic:
+Р’ .NET Framework 4 РїРѕСЏРІРёР»Р°СЃСЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РґРёРЅР°РјРёС‡РµСЃРєРѕР№ С‚РёРїРёР·Р°С†РёРё РїСЂРё РїРѕРјРѕС‰Рё РєР»СЋС‡РµРІРѕРіРѕ СЃР»РѕРІР° dynamic:
 ```csharp
 dynamic someObject = SomeMethod ();
 ```
-К свойствам и методам dynamic-объекта можно обращаться без оглядки, описаны они статически или нет:
+Рљ СЃРІРѕР№СЃС‚РІР°Рј Рё РјРµС‚РѕРґР°Рј dynamic-РѕР±СЉРµРєС‚Р° РјРѕР¶РЅРѕ РѕР±СЂР°С‰Р°С‚СЊСЃСЏ Р±РµР· РѕРіР»СЏРґРєРё, РѕРїРёСЃР°РЅС‹ РѕРЅРё СЃС‚Р°С‚РёС‡РµСЃРєРё РёР»Рё РЅРµС‚:
 ```csharp
-someObject.ExistentMethod (); // Такой метод есть
-someObject.NotExistentMethod (); // А такого нет
+someObject.ExistentMethod (); // РўР°РєРѕР№ РјРµС‚РѕРґ РµСЃС‚СЊ
+someObject.NotExistentMethod (); // Рђ С‚Р°РєРѕРіРѕ РЅРµС‚
 ```
-Если во время исполнения программы среда не найдёт соответствующего метода, будет вызвано исключение `RuntimeBinderException` с сообщением ‘SomeClass’ does not contain a definition for ‘NonExistentMethod’.
+Р•СЃР»Рё РІРѕ РІСЂРµРјСЏ РёСЃРїРѕР»РЅРµРЅРёСЏ РїСЂРѕРіСЂР°РјРјС‹ СЃСЂРµРґР° РЅРµ РЅР°Р№РґС‘С‚ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµРіРѕ РјРµС‚РѕРґР°, Р±СѓРґРµС‚ РІС‹Р·РІР°РЅРѕ РёСЃРєР»СЋС‡РµРЅРёРµ `RuntimeBinderException` СЃ СЃРѕРѕР±С‰РµРЅРёРµРј вЂSomeClassвЂ™ does not contain a definition for вЂNonExistentMethodвЂ™.
 
-Чтобы сделать эту возможность обращения к произвольному методу класса более полезной, в Framework был добавлен класс System.Dynamic.DynamicObject, содержащий метод для перехвата обращения к несуществующим членам:
+Р§С‚РѕР±С‹ СЃРґРµР»Р°С‚СЊ СЌС‚Сѓ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РѕР±СЂР°С‰РµРЅРёСЏ Рє РїСЂРѕРёР·РІРѕР»СЊРЅРѕРјСѓ РјРµС‚РѕРґСѓ РєР»Р°СЃСЃР° Р±РѕР»РµРµ РїРѕР»РµР·РЅРѕР№, РІ Framework Р±С‹Р» РґРѕР±Р°РІР»РµРЅ РєР»Р°СЃСЃ System.Dynamic.DynamicObject, СЃРѕРґРµСЂР¶Р°С‰РёР№ РјРµС‚РѕРґ РґР»СЏ РїРµСЂРµС…РІР°С‚Р° РѕР±СЂР°С‰РµРЅРёСЏ Рє РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РёРј С‡Р»РµРЅР°Рј:
 ```csharp
 bool TryInvokeMember
     (
@@ -20,7 +20,7 @@ bool TryInvokeMember
         out object result
     );
 ```
-Для ещё большего удобства в Framework предусмотрен класс `System.Dynamic.ExpandoObject`, который позволяет динамически добавлять свойства и методы по мере необходимости.
+Р”Р»СЏ РµС‰С‘ Р±РѕР»СЊС€РµРіРѕ СѓРґРѕР±СЃС‚РІР° РІ Framework РїСЂРµРґСѓСЃРјРѕС‚СЂРµРЅ РєР»Р°СЃСЃ `System.Dynamic.ExpandoObject`, РєРѕС‚РѕСЂС‹Р№ РїРѕР·РІРѕР»СЏРµС‚ РґРёРЅР°РјРёС‡РµСЃРєРё РґРѕР±Р°РІР»СЏС‚СЊ СЃРІРѕР№СЃС‚РІР° Рё РјРµС‚РѕРґС‹ РїРѕ РјРµСЂРµ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё.
 ```csharp
 dynamic eo = new ExpandoObject ();
 eo.Name = "Alexey Mironov";
@@ -31,7 +31,7 @@ eo.PrintInfo = new Action ( () => Console.WriteLine
 ...
 eo.PrintInfo ();
 ```
-ExpandoObject можно сериализовать в XML с помощью `System.Runtime.Serialization.DataContractSerializer`:
+ExpandoObject РјРѕР¶РЅРѕ СЃРµСЂРёР°Р»РёР·РѕРІР°С‚СЊ РІ XML СЃ РїРѕРјРѕС‰СЊСЋ `System.Runtime.Serialization.DataContractSerializer`:
 ```csharp
 var s = new DataContractSerializer
     (
