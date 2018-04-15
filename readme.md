@@ -6,6 +6,7 @@
 
 #### Асинхронность
 
+* [Task-based Asynchronous Pattern](Chapters/TAP.md)
 * [Во что разворачивается await](Chapters/AwaitInternals.md)
 * [Возвращаемые типы в async](Chapters/AsyncReturn.md)
 * [ValueTask - что это и зачем](Chapters/ValueTask.md)
@@ -61,10 +62,12 @@
 * [Коллекции C5](Chapters/C5.md)
 * [It’s Noda Time!](Chapters/Noda.md)
 * [IKVM.NET](Chapters/IKVM.md)
+* [Moq](Chapters/Moq.md)
 * [Запуск AnyCPU-приложения в 32-битном режиме](Chapters/Run32bit.md)
 * [Структура Span&lt;T&gt;](Chapters/Span.md)
 * [Lightweight Function в стеке вызовов](Chapters/LightweightFunction.md)
 * [TCP сервер](Chapters/TcpServer.md)
+* [Как встроить TLB в сборку](Chapters/TLB.md)
 * [Инлайнинг методов в .NET](Chapters/Inlining.md)
 * [CallerMemberNameAttribute](Chapters/CallerMemberNameAttribute.md)
 * [Недокументированные ключевые слова C#](Chapters/Undocumented.md)
