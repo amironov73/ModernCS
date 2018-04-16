@@ -4,6 +4,10 @@
 
 #### [История C#](Chapters/CsharpHistory.md)
 
+#### [Версии Microsoft .NET](Chapters/Versions.md)
+
+* [Совместимость .NET Framework с версиями Windows](Chapters/WindowsCompatibility.md)
+
 #### Асинхронность
 
 * [Task-based Asynchronous Pattern](Chapters/TAP.md)
@@ -72,6 +76,7 @@
 * [Встраивание Chrome в приложение WinForms](Chapters/Cef.md)
 * [Маленькие радости LinqPad](Chapters/LinqPad.md)
 * [Запуск AnyCPU-приложения в 32-битном режиме](Chapters/Run32bit.md)
+* [Как узнать, что сборка Mixed Mode](Chapters/MixedMode.md)
 * [Как пометить сборку «только .NET 4.5 и выше»](Chapters/For45.md)
 * [Структура Span&lt;T&gt;](Chapters/Span.md)
 * [Lightweight Function в стеке вызовов](Chapters/LightweightFunction.md)
