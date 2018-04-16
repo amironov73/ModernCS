@@ -70,6 +70,7 @@
 * [Morphology.NET](Chapters/MorphologyNET.md)
 * [NFX UNISTACK](Chapters/NFX.md)
 * [Встраивание Chrome в приложение WinForms](Chapters/Cef.md)
+* [Маленькие радости LinqPad](Chapters/LinqPad.md)
 * [Запуск AnyCPU-приложения в 32-битном режиме](Chapters/Run32bit.md)
 * [Как пометить сборку «только .NET 4.5 и выше»](Chapters/For45.md)
 * [Структура Span&lt;T&gt;](Chapters/Span.md)
