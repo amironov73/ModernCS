@@ -1,8 +1,8 @@
-### Windows Communication Foundation
+п»ї### Windows Communication Foundation
 
-* [Начало](Start.md)
-* [Исключения](Exceptions.md)
-* [Хостинг в сервисе](Service.md)
+* [РќР°С‡Р°Р»Рѕ](Start.md)
+* [РСЃРєР»СЋС‡РµРЅРёСЏ](Exceptions.md)
+* [РҐРѕСЃС‚РёРЅРі РІ СЃРµСЂРІРёСЃРµ](Service.md)
 
 
 
