@@ -74,6 +74,8 @@
 * [Morphology.NET](Chapters/MorphologyNET.md)
 * [NFX UNISTACK](Chapters/NFX.md)
 * [Встраивание Chrome в приложение WinForms](Chapters/Cef.md)
+* [Отрисовка SVG-графики](Chapters/Svg.md)
+* [JSON](Chapters/JSON.md)
 * [Маленькие радости LinqPad](Chapters/LinqPad.md)
 * [Запуск AnyCPU-приложения в 32-битном режиме](Chapters/Run32bit.md)
 * [Как узнать, что сборка Mixed Mode](Chapters/MixedMode.md)
