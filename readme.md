@@ -75,6 +75,7 @@
 * [NFX UNISTACK](Chapters/NFX.md)
 * [Встраивание Chrome в приложение WinForms](Chapters/Cef.md)
 * [Отрисовка SVG-графики](Chapters/Svg.md)
+* [FFmpeg в .NET](Chapters/FFmpeg.md)
 * [JSON](Chapters/JSON.md)
 * [Маленькие радости LinqPad](Chapters/LinqPad.md)
 * [Запуск AnyCPU-приложения в 32-битном режиме](Chapters/Run32bit.md)
