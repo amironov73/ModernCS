@@ -78,6 +78,7 @@
 * [FFmpeg в .NET](Chapters/FFmpeg.md)
 * [JSON](Chapters/JSON.md)
 * [Маленькие радости LinqPad](Chapters/LinqPad.md)
+* [Windows Communication Foundation](Chapters/WCF/readme.md)
 * [Запуск AnyCPU-приложения в 32-битном режиме](Chapters/Run32bit.md)
 * [Как узнать, что сборка Mixed Mode](Chapters/MixedMode.md)
 * [Как пометить сборку «только .NET 4.5 и выше»](Chapters/For45.md)
