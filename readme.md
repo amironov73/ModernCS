@@ -80,6 +80,7 @@
 * [FFmpeg в .NET](Chapters/FFmpeg.md)
 * [JSON](Chapters/JSON.md)
 * [NLog](Chapters/NLog.md)
+* [StringTemplate](Chapters/StringTemplate.md)
 * [Маленькие радости LinqPad](Chapters/LinqPad.md)
 * [Windows Communication Foundation](Chapters/WCF/readme.md)
 * [Запуск AnyCPU-приложения в 32-битном режиме](Chapters/Run32bit.md)
