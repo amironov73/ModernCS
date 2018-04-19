@@ -88,6 +88,7 @@
 * [Как пометить сборку «только .NET 4.5 и выше»](Chapters/For45.md)
 * [Аутентификация с Active Directory](Chapters/ActiveDirectory.md)
 * [Использование аннотаций JetBrains](Chapters/JetBrainsAnnotations.md)
+* [Docker](Chapters/Docker/readme.md)
 * [Структура Span&lt;T&gt;](Chapters/Span.md)
 * [Lightweight Function в стеке вызовов](Chapters/LightweightFunction.md)
 * [TCP сервер](Chapters/TcpServer.md)
@@ -96,3 +97,4 @@
 * [CallerMemberNameAttribute](Chapters/CallerMemberNameAttribute.md)
 * [Microsoft SQL Server Compact Edition](Chapters/SQLCE.md)
 * [Недокументированные ключевые слова C#](Chapters/Undocumented.md)
+
