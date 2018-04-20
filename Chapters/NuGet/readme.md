@@ -1,5 +1,27 @@
 ﻿### NuGet
 
+* [Rx.NET](RxNET.md)
+* [Reactive Extensions в WinForms](RxWinForms.md)
+* [Topshelf](Topshelf.md)
+* [Eto.Forms](EtoForms.md)
+* [Eto.Parse](EtoParse.md)
+* [Коллекции C5](C5.md)
+* [IKVM.NET](IKVM.md)
+* [It’s Noda Time!](Noda.md)
+* [NLog](NLog.md)
+* [Moq](Moq.md)
+* [NFX UNISTACK](NFX.md)
+* [RestSharp](RestSharp.md)
+* [Morphology.NET](MorphologyNET.md)
+* [Встраивание Chrome в приложение WinForms](Cef.md)
+* [Отрисовка SVG-графики](Svg.md)
+* [FFmpeg в .NET](FFmpeg.md)
+* [JSON](JSON.md)
+* [StringTemplate](StringTemplate.md)
+* [Magick.NET](MagickNET.md)
+* [Генерация IL с помощью Sigil](Sigil.md)
+* [Fody – инструмент для инструментации сборок](Fody.md)
+
 #### Сокровища NuGet
 
 <ul>

@@ -41,19 +41,9 @@
 
 * [Expression Trees](Chapters/ExpressionTrees.md)
 
-#### [NuGet](Chapters/NuGet/readme.md)
+#### [Roslyn](Chapters/Roslyn/readme.md)
 
-* [Rx.NET](Chapters/NuGet/RxNET.md)
-* [Reactive Extensions в WinForms](Chapters/NuGet/RxWinForms.md)
-* [Topshelf](Chapters/NuGet/Topshelf.md)
-* [Eto.Forms](Chapters/NuGet/EtoForms.md)
-* [Eto.Parse](Chapters/NuGet/EtoParse.md)
-* [Коллекции C5](Chapters/NuGet/C5.md)
-* [IKVM.NET](Chapters/NuGet/IKVM.md)
-* [It’s Noda Time!](Chapters/NuGet/Noda.md)
-* [NLog](Chapters/NuGet/NLog.md)
-* [Moq](Chapters/NuGet/Moq.md)
-* [NFX UNISTACK](Chapters/NuGet/NFX.md)
+#### [NuGet](Chapters/NuGet/readme.md)
 
 #### [Расширения Visual Studio](Chapters/VSExtensions/readme.md)
 
@@ -82,13 +72,6 @@
 * [DebuggerDisplayAttribute](Chapters/DebuggerDisplayAttribute.md)
 * [ExceptionDispatchInfo](Chapters/ExceptionDispatchInfo.md)
 * [Managed Extensibility Framework](Chapters/MEF.md)
-* [RestSharp](Chapters/RestSharp.md)
-* [Morphology.NET](Chapters/MorphologyNET.md)
-* [Встраивание Chrome в приложение WinForms](Chapters/Cef.md)
-* [Отрисовка SVG-графики](Chapters/Svg.md)
-* [FFmpeg в .NET](Chapters/FFmpeg.md)
-* [JSON](Chapters/JSON.md)
-* [StringTemplate](Chapters/StringTemplate.md)
 * [Маленькие радости LinqPad](Chapters/LinqPad.md)
 * [Windows Communication Foundation](Chapters/WCF/readme.md)
 * [Запуск AnyCPU-приложения в 32-битном режиме](Chapters/Run32bit.md)
@@ -105,5 +88,6 @@
 * [CallerMemberNameAttribute](Chapters/CallerMemberNameAttribute.md)
 * [Microsoft SQL Server Compact Edition](Chapters/SQLCE.md)
 * [Недокументированные ключевые слова C#](Chapters/Undocumented.md)
+* [Как различить версии .NET 4.x](Chapters/4x.md)
 
 
