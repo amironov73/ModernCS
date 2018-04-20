@@ -44,6 +44,7 @@
 #### Полезные мелочи
 
 * [Использование новой CLR бок о бок со старой](Chapters/SideBySide.md)
+* [Переключение между версиями .NET Core SDK](Chapters/Switching.md)
 * [Unicode и его ловушки](Chapters/Unicode.md)
 * [Рекомендации Microsoft по работе со строками в .NET](Chapters/Strings.md)
 * [Как работает using](Chapters/Using.md)
@@ -67,6 +68,8 @@
 * [Rx.NET](Chapters/RxNET.md)
 * [Reactive Extensions в WinForms](Chapters/RxWinForms.md)
 * [Topshelf](Chapters/Topshelf.md)
+* [Eto.Forms](Chapters/EtoForms.md)
+* [Eto.Parse](Chapters/EtoParse.md)
 * [Managed Extensibility Framework](Chapters/MEF.md)
 * [Коллекции C5](Chapters/C5.md)
 * [It’s Noda Time!](Chapters/Noda.md)
