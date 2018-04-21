@@ -22,6 +22,8 @@
 * [Генерация IL с помощью Sigil](Sigil.md)
 * [Fody – инструмент для инструментации сборок](Fody.md)
 * [FluentRest — HttpClient стал удобным](FluentRest.md)
+* [FastJSON](FastJSON.md)
+* [FastBinaryJSON](FastBinaryJSON.md)
 
 #### Сокровища NuGet
 
