@@ -21,6 +21,7 @@
 * [Magick.NET](MagickNET.md)
 * [Генерация IL с помощью Sigil](Sigil.md)
 * [Fody – инструмент для инструментации сборок](Fody.md)
+* [FluentRest — HttpClient стал удобным](FluentRest.md)
 
 #### Сокровища NuGet
 

@@ -51,6 +51,7 @@
 
 * [Использование новой CLR бок о бок со старой](Chapters/SideBySide.md)
 * [Переключение между версиями .NET Core SDK](Chapters/Switching.md)
+* [Как узнать, какие патчи для .NET установлены](Chapters/Patches.md)
 * [Unicode и его ловушки](Chapters/Unicode.md)
 * [Рекомендации Microsoft по работе со строками в .NET](Chapters/Strings.md)
 * [Как работает using](Chapters/Using.md)
