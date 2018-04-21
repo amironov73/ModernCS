@@ -24,6 +24,8 @@
 * [FluentRest — HttpClient стал удобным](FluentRest.md)
 * [FastJSON](FastJSON.md)
 * [FastBinaryJSON](FastBinaryJSON.md)
+* [Движок ChakraCore](ChakraCore.md)
+* [Угловатый и пошарпаный: AngleSharp](AngleSharp.md)
 
 #### Сокровища NuGet
 
