@@ -27,6 +27,8 @@
 * [Движок ChakraCore](ChakraCore.md)
 * [Угловатый и пошарпаный: AngleSharp](AngleSharp.md)
 * [Castle.DynamicProxy](CastleDynamicProxy.md)
+* [Simple and Fast Multimedia Library](SFML.md)
+* [Octokit - GitHub API](Oktokit.md)
 
 #### Сокровища NuGet
 
