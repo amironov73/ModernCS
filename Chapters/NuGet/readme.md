@@ -26,6 +26,7 @@
 * [FastBinaryJSON](FastBinaryJSON.md)
 * [Движок ChakraCore](ChakraCore.md)
 * [Угловатый и пошарпаный: AngleSharp](AngleSharp.md)
+* [Castle.DynamicProxy](CastleDynamicProxy.md)
 
 #### Сокровища NuGet
 
