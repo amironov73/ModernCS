@@ -32,6 +32,7 @@
 * [RaptorDB document store](RaptorDB.md)
 * [Nito.Comparers](NitoComparers.md)
 * [MultiValueDictionary](MultiValueDictionary.md)
+* [OpenCvSharp](OpenCvSharp.md)
 
 #### Сокровища NuGet
 
