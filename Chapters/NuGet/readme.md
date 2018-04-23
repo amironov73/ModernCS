@@ -31,6 +31,7 @@
 * [Octokit - GitHub API](Octokit.md)
 * [RaptorDB document store](RaptorDB.md)
 * [Nito.Comparers](NitoComparers.md)
+* [MultiValueDictionary](MultiValueDictionary.md)
 
 #### Сокровища NuGet
 
