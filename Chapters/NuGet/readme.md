@@ -33,6 +33,7 @@
 * [Nito.Comparers](NitoComparers.md)
 * [MultiValueDictionary](MultiValueDictionary.md)
 * [OpenCvSharp](OpenCvSharp.md)
+* [YoutubeExtractor](YoutubeExtractor.md)
 
 #### Сокровища NuGet
 

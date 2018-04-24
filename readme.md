@@ -47,6 +47,8 @@
 
 #### [Расширения Visual Studio](Chapters/VSExtensions/readme.md)
 
+#### [Docker](Chapters/Docker/readme.md)
+
 #### Полезные мелочи
 
 * [Использование новой CLR бок о бок со старой](Chapters/SideBySide.md)
