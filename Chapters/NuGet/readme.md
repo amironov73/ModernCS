@@ -34,6 +34,7 @@
 * [MultiValueDictionary](MultiValueDictionary.md)
 * [OpenCvSharp](OpenCvSharp.md)
 * [YoutubeExtractor](YoutubeExtractor.md)
+* [iText](iText.md)
 
 #### Сокровища NuGet
 
