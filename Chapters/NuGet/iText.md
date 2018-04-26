@@ -30,6 +30,18 @@ class Program
 }
 ```
 
+Всё это работает через несколько слоёв абстракции.
+
+1. Мы создаем экземпляр PdfWriter. PdfWriter - это объект, который может писать PDF-файл. Он мало знает о фактическом содержании документа PDF, который он пишет. PdfWriter не знает, что такое документ, он просто пишет разные части файлов и разные объекты, которые составляют действительный документ после завершения структуры файла. В этом случае мы передаем строковый, который содержит путь к файлу. Конструктор также принимает параметр Stream как параметр. Например: если мы хотим написать веб-приложение, мы могли бы написать HttpResponse.OutputStream; если бы мы хотели создать PDF-документ в памяти, мы могли бы использовать MemoryStream; и так далее.
+
+2. PdfWriter знает, что писать, потому что он слушает PdfDocument. PdfDocument управляет содержимым, которое добавляется, распространяет этот контент на разные страницы и отслеживает, какая информация имеет отношение к этому контенту. В главе 7 мы обнаружим, что существуют различные разновидности классов PdfDocument, которые может слушать PdfWriter.
+
+3. Как только мы создали PdfWriter и PdfDocument, мы закончили со всем низкоуровневым кодом, специфичным для PDF. Мы создаем документ, который принимает параметр PdfDocument как параметр. Теперь, когда у нас есть объект документа, мы можем забыть, что мы создаем PDF.
+
+4. Мы создаем абзац, содержащий текст «Hello World», и добавляем этот абзац к объекту документа.
+
+5. Мы закрываем документ. Наш PDF-файл создан.
+
 Кириллические символы, к сожалению, так просто вывести не получится. Понадобятся дополнительные телодвижения. Пример таких телодвижений под Windows:
 
 ```csharp
@@ -130,6 +142,7 @@ ARIZONA;AZ;Phoenix;Phoenix;6,595,778;114,006;MT (UTC-07); ;NO
 ARKANSAS;AR;Little Rock;Little Rock;2,889,450;53,182;CST (UTC-6); ;YES
 CALIFORNIA;CA;Sacramento;Los Angeles;36,961,664;163,707;PT (UTC-8); ;YES
 COLORADO;CO;Denver;Denver;5,024,748;104,100;MT (UTC-07); ;YES
+...
 ```
 
 Вот как строится таблица:
@@ -205,3 +218,177 @@ class Program
 
 ![pdfTable](img/pdfTable.png)
 
+#### Низкоуровневое рисование
+
+Попробуем изобразить график синусоиды:
+
+```csharp
+using System;
+
+using iText.Kernel.Colors;
+using iText.Kernel.Font;
+using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iText.Kernel.Pdf.Canvas;
+using iText.Layout;
+
+class Program
+{
+    static void Main()
+    {
+        PdfWriter writer = new PdfWriter("Hello.pdf");
+        PdfDocument pdf = new PdfDocument(writer);
+        Document document = new Document(pdf);
+        PageSize pageSize = PageSize.A4.Rotate();
+        PdfPage page = pdf.AddNewPage(pageSize);
+        PdfCanvas canvas = new PdfCanvas(page);
+
+        // определяем цвета
+        DeviceRgb black = new DeviceRgb(0, 0, 0);
+        DeviceRgb blue = new DeviceRgb(180, 180, 255);
+        DeviceRgb red = new DeviceRgb(255, 0, 0);
+        DeviceRgb green = new DeviceRgb(0, 127, 0);
+
+        // высота и ширина холста (и его середина)
+        float width = pageSize.GetWidth(), width2 = width / 2;
+        float height = pageSize.GetHeight(), height2 = height / 2;
+
+        // отступы от края страницы
+        float marginX = 20, marginY = 20;
+
+        // размер стрелки на оси
+        float arrow = 15;
+
+        // риски на осях и их размеры
+        int nserif = 28; // общее количество рисок на одной оси
+        float serif = 5, serif2 = serif / 2;
+        float deltaX = (width - marginX * 4) / nserif;
+        float deltaY = (height - marginY * 4) / nserif;
+
+        // рисуем клетки
+        canvas.SetStrokeColor(blue);
+        float x = marginX * 2;
+        for (int i = 0; i < nserif; i++)
+        {
+            canvas.MoveTo(x, marginY)
+                .LineTo(x, height - marginY)
+                .Stroke();
+            x += deltaX;
+        }
+
+        float y = marginY * 2;
+        for (int i = 0; i < nserif; i++)
+        {
+            canvas.MoveTo(marginX, y)
+                .LineTo(width - marginX, y)
+                .Stroke();
+            y += deltaY;
+        }
+
+        canvas.SetStrokeColor(black);
+
+        // рисуем горизонтальную линию по центру листа
+        canvas.MoveTo(marginX, height2)
+            .LineTo(width - marginX, height2)
+            .Stroke();
+
+        // и стрелку на конце линии
+        canvas.MoveTo(width - marginX - arrow, height2 - arrow)
+            .LineTo(width - marginX, height2)
+            .LineTo(width - marginX - arrow, height2 + arrow)
+            .Stroke();
+
+        // рисуем вертикальную линию по центру листа
+        canvas.MoveTo(width2, marginY)
+            .LineTo(width2, height - marginY)
+            .Stroke();
+
+        // и стрелку на конце линии
+        canvas.MoveTo(width2 - arrow, height - marginY - arrow)
+            .LineTo(width2, height - marginY)
+            .LineTo(width2 + arrow, height - marginY - arrow)
+            .Stroke();
+
+        // прорисовываем риски
+        x = marginX * 2;
+        for (int i = 0; i < nserif; i++)
+        {
+            canvas.MoveTo(x, height2 - serif2)
+                .LineTo(x, height2 + serif2)
+                .Stroke();
+            x += deltaX;
+        }
+
+        y = marginY * 2;
+        for (int i = 0; i < nserif; i++)
+        {
+            canvas.MoveTo(width2 - serif2, y)
+                .LineTo(width2 + serif2, y)
+                .Stroke();
+            y += deltaY;
+        }
+
+        // рисуем график синусоиды
+        bool first = true;
+        canvas.SetStrokeColor(red).SetLineWidth(2);
+        x = marginX;
+        while (x < width - marginX)
+        {
+            double arg = (x - width2) / width * Math.PI * 2;
+            double value = Math.Sin(arg);
+            y = (int)(height2 + (height2 - marginY * 2) * value);
+            if (first)
+            {
+                canvas.MoveTo(x, y);
+            }
+            else
+            {
+                canvas.LineTo(x, y);
+            }
+            x++;
+            first = false;
+        }
+        canvas.Stroke();
+
+        // рисуем подписи к оси Y
+        string fontProgram = iText.IO.Font.Constants.StandardFonts.HELVETICA_BOLD;
+        PdfFont font = PdfFontFactory.CreateFont(fontProgram);
+        canvas.BeginText()
+            .SetFontAndSize(font, 14)
+            .SetFillColor(green)
+            .MoveText(width2 + 5, height2 - 15)
+            .ShowText("0.0")
+            .EndText();
+
+        canvas.BeginText()
+            .SetFontAndSize(font, 14)
+            .SetFillColor(green)
+            .MoveText(width2 + 3, height - marginY - 30)
+            .ShowText("-1.0")
+            .EndText();
+
+        canvas.BeginText()
+            .SetFontAndSize(font, 14)
+            .SetFillColor(green)
+            .MoveText(width2 + 5, marginY + 5)
+            .ShowText("1.0")
+            .EndText();
+
+        document.Close();
+    }
+}
+
+```
+
+Вот что получается в итоге:
+
+![pdflowleve](img/pdflowlevel.png)
+
+#### Прочее
+
+Разрыв страницы (последующий вывод будет со следующей страницы):
+
+```csharp
+document.Add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+
+```
