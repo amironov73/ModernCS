@@ -49,6 +49,8 @@
 
 #### [Docker](Chapters/Docker/readme.md)
 
+#### [AvaloniaUI](Chapters/AvaloniaUI/readme.md)
+
 #### Полезные мелочи
 
 * [Использование новой CLR бок о бок со старой](Chapters/SideBySide.md)
