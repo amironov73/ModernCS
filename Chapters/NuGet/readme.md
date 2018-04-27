@@ -35,6 +35,7 @@
 * [OpenCvSharp](OpenCvSharp.md)
 * [YoutubeExtractor](YoutubeExtractor.md)
 * [iText](iText.md)
+* [LiteDB](LiteDB.md)
 
 #### Сокровища NuGet
 
