@@ -220,7 +220,7 @@ class Program
 
 #### Низкоуровневое рисование
 
-Попробуем изобразить график синусоиды:
+Попробуем изобразить график синусоиды (обратите внимание, что координаты в PDF считаются от левого нижнего угла вверх и направо):
 
 ```csharp
 using System;
@@ -364,14 +364,14 @@ class Program
             .SetFontAndSize(font, 14)
             .SetFillColor(green)
             .MoveText(width2 + 3, height - marginY - 30)
-            .ShowText("-1.0")
+            .ShowText("1.0")
             .EndText();
 
         canvas.BeginText()
             .SetFontAndSize(font, 14)
             .SetFillColor(green)
-            .MoveText(width2 + 5, marginY + 5)
-            .ShowText("1.0")
+            .MoveText(width2 + 3, marginY + 5)
+            .ShowText("-1.0")
             .EndText();
 
         document.Close();

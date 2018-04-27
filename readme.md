@@ -43,6 +43,8 @@
 
 #### [Roslyn](Chapters/Roslyn/readme.md)
 
+#### [WPF](Chapters/WPF/readme.md)
+
 #### [NuGet](Chapters/NuGet/readme.md)
 
 #### [Расширения Visual Studio](Chapters/VSExtensions/readme.md)
