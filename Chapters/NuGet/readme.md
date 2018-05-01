@@ -36,6 +36,7 @@
 * [YoutubeExtractor](YoutubeExtractor.md)
 * [iText](iText.md)
 * [LiteDB](LiteDB.md)
+* [CurlSharp](CurlSharp.md)
 
 #### Сокровища NuGet
 
