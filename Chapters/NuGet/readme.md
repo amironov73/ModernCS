@@ -37,6 +37,7 @@
 * [iText](iText.md)
 * [LiteDB](LiteDB.md)
 * [CurlSharp](CurlSharp.md)
+* [Клиент и сервер DNS для .NET](DNS.md)
 
 #### Сокровища NuGet
 
