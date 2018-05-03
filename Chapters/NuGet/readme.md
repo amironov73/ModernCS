@@ -38,6 +38,7 @@
 * [LiteDB](LiteDB.md)
 * [CurlSharp](CurlSharp.md)
 * [Клиент и сервер DNS для .NET](DNS.md)
+* [AvalonEdit](AvalonEdit.md)
 
 #### Сокровища NuGet
 
