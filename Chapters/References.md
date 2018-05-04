@@ -2,6 +2,7 @@
 
 * [Загрузки](https://www.microsoft.com/net/download/all)
 * [.NET Core SDK (в т. ч. предрелизные)](https://github.com/dotnet/cli)
+* [Runtime без SDK (в т. ч. предрелизные)](https://github.com/dotnet/core-setup)
 * [Документация](https://docs.microsoft.com/en-us/dotnet/)
 * [.NET API Browser](https://docs.microsoft.com/en-us/dotnet/api/)
 * [ASP.NET - центр](https://www.asp.net)

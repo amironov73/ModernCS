@@ -97,5 +97,6 @@
 * [Недокументированные ключевые слова C#](Chapters/Undocumented.md)
 * [Как различить версии .NET 4.x](Chapters/4x.md)
 * [Используем procdump для получения дампов](Chapters/ProcDump.md)
+* [Использование T4 в своей программе](Chapters/T4.md)
 
 
