@@ -6,7 +6,7 @@
 
 1. Открываем нужный нам файл с помощью `FileStream`.
 2. С помощью `MemoryMappedFile.CreateFromFile` создаем объект MemoryMappedFile.
-3. Теперь нужно сделать одно из двух: создать либо поток `MemoryMappedViewStream` либо акцессор ``.
+3. Теперь нужно сделать одно из двух: создать либо поток `MemoryMappedViewStream` либо акцессор `(MemoryMappedViewAccessor`.
 
 Пример создания потока:
 
