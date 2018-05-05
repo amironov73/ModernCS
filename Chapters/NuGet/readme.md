@@ -40,6 +40,7 @@
 * [Клиент и сервер DNS для .NET](DNS.md)
 * [AvalonEdit](AvalonEdit.md)
 * [TextTemplate как замена T4](TextTemplate.md)
+* [Quartz.NET](QuartzNET.md)
 
 #### Сокровища NuGet
 
