@@ -43,6 +43,7 @@
 * [Quartz.NET](QuartzNET.md)
 * [FluentScheduler](FluentScheduler.md)
 * [Запуск скриптов PowerShell](PowerShell.md)
+* [Terminal.Gui](TerminalGui.md)
 
 #### Сокровища NuGet
 
