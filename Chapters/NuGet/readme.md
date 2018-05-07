@@ -44,6 +44,7 @@
 * [FluentScheduler](FluentScheduler.md)
 * [Запуск скриптов PowerShell](PowerShell.md)
 * [Terminal.Gui](TerminalGui.md)
+* [ConsoleFramework](ConsoleFramework.md)
 
 #### Сокровища NuGet
 
