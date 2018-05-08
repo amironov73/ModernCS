@@ -45,6 +45,8 @@
 * [Запуск скриптов PowerShell](PowerShell.md)
 * [Terminal.Gui](TerminalGui.md)
 * [ConsoleFramework](ConsoleFramework.md)
+* [LinqAF](LinqAF.md)
+* [Lucene.NET](LuceneNET.md)
 
 #### Сокровища NuGet
 
