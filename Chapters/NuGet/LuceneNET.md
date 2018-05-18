@@ -2,7 +2,7 @@
 
 Сайт: https://lucenenet.apache.org/, GitHub: https://github.com/apache/lucenenet, NuGet: https://www.nuget.org/packages/Lucene.Net/
 
-Актуальная версия: 4.8.0 (beta5)
+Актуальная версия: 4.8.0 (beta5), предыдущая: 3.0.3
 
 Имеются библиотеки:
 
@@ -30,7 +30,7 @@
 * **Lucene.Net.Spatial** - Geospatial search
 * **Lucene.Net.Suggest** - Auto-suggest and Spellchecking support
 
-Поддерживает .NET Framework 3.5, 4.0.
+Поддерживает: версия 3.0.3: .NET Framework 3.5, 4.0, версия 4.8.0: .NET Framework 4.5, .NET Standard 1.6 и 2.0.
 
 Простая программа, которая сначала создает индекс для текстового файла, а затем выводит номера строк, в которых содержится искомое слово.
 

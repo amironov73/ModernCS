@@ -47,6 +47,8 @@
 * [ConsoleFramework](ConsoleFramework.md)
 * [LinqAF](LinqAF.md)
 * [Lucene.NET](LuceneNET.md)
+* [Common.Logging](CommonLogging.md)
+* [ML.NET](MLNET.md)
 
 #### Сокровища NuGet
 

@@ -7,3 +7,15 @@ Windows Presentation Framework (WPF) — технология создания �
 * [Динамическая загрузка XAML](LoadXaml.md)
 * [Документы](Documents.md)
 
+#### Иерархия
+
+* Object
+* [DispatcherObject](DispatcherObject.md)
+* [DependencyObject](DependencyObject.md)
+* [Visual](Visual.md)
+* [UIElement](UIElement.md)
+* FrameworkElement
+* Control
+* ContentControl
+* Window
+
