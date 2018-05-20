@@ -19,3 +19,7 @@ Windows Presentation Framework (WPF) — технология создания �
 * ContentControl
 * Window
 
+#### Инструменты
+
+* [XAML Power Toys for Visual Studio 2015-2017](XAMLPowerToys.md)
+
