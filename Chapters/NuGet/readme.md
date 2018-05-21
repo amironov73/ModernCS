@@ -50,6 +50,7 @@
 * [Common.Logging](CommonLogging.md)
 * [ML.NET](MLNET.md)
 * [Библиотека Microsoft.VisualStudio.Threading](MicrosoftVisualStudioThreading.md)
+* [Microsoft.Recognizers.Text](MicrosoftRecognizersText.md)
 
 #### Сокровища NuGet
 
