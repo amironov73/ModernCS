@@ -51,6 +51,8 @@
 
 #### [Docker](Chapters/Docker/readme.md)
 
+#### [Машинное обучение](Chapters/ML/readme.md)
+
 #### [AvaloniaUI](Chapters/AvaloniaUI/readme.md)
 
 #### Полезные мелочи

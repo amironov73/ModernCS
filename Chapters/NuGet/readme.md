@@ -48,10 +48,10 @@
 * [LinqAF](LinqAF.md)
 * [Lucene.NET](LuceneNET.md)
 * [Common.Logging](CommonLogging.md)
-* [ML.NET](MLNET.md)
 * [Библиотека Microsoft.VisualStudio.Threading](MicrosoftVisualStudioThreading.md)
 * [Microsoft.Recognizers.Text](MicrosoftRecognizersText.md)
 * [ILRepack](ILRepack.md)
+* [Библиотека ImageSharp](ImageSharp.md)
 
 #### Сокровища NuGet
 
