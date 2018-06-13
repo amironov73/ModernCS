@@ -52,6 +52,7 @@
 * [Microsoft.Recognizers.Text](MicrosoftRecognizersText.md)
 * [ILRepack](ILRepack.md)
 * [Библиотека ImageSharp](ImageSharp.md)
+* [Библиотека SharpFont](SharpFont.md)
 
 #### Сокровища NuGet
 
