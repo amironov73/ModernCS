@@ -53,6 +53,7 @@
 * [ILRepack](ILRepack.md)
 * [Библиотека ImageSharp](ImageSharp.md)
 * [Библиотека SharpFont](SharpFont.md)
+* [Библиотека Polly](Polly.md)
 
 #### Сокровища NuGet
 

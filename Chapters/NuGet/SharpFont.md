@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
  
-        private void DrawLine
+        private void DrawText
             (
                 string text,
                 string fontPath,
@@ -65,12 +65,12 @@ namespace WindowsFormsApp1
  
         private void button1_Click(object sender, EventArgs e)
         {
-            DrawLine("Привет", "Fonts/rublik.ttf", 42);
+            DrawText("Привет", "Fonts/rublik.ttf", 42);
         }
  
         private void button2_Click(object sender, EventArgs e)
         {
-            DrawLine("Hello", "Fonts/Alegreya-Regular.otf", 42);
+            DrawText("Hello", "Fonts/Alegreya-Regular.otf", 42);
         }
     }
 }
