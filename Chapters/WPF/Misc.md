@@ -1,4 +1,8 @@
-﻿### Rendering Tiers
+﻿### Поддержка Resharper
+
+https://www.jetbrains.com/resharper/features/xaml_editor.html
+
+### Rendering Tiers
 
 WPF applications automatically examine graphics card capabilities at runtime and assigns a rendering tier value, indicating what functions can be performed by the graphics card.
 
@@ -1386,4 +1390,130 @@ looks like this:
 
 ![logicaltree](img/logicaltree.png)
 
+### The Visual Tree
+
+A visual tree in WPF breaks down the logical tree into lower-level visual elements.  Where elements in a logical tree are typically controls, the visual tree contains all of the underlying visual elements that make up the control.  All elements in a visual tree derive from Visual or Visual3D.
+
+As an example, the visual tree for the following XAML:
+
+```xml
+<Window x:Class="WpfApplication4.MainWindow"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml>
+    <StackPanel>
+        <Button Content="Click Me" />
+        <TextBox />
+        <ListBox>
+            <ListBoxItem Content="Barley"/>
+            <ListBoxItem Content="Oats"/>
+        </ListBox>
+    </StackPanel>
+</Window>
+```
+
+looks like this:
+
+```
+Window
+    Border
+        AdornerDecorator
+            ContentPresenter
+                StackPanel
+                    Button
+                        ButtonChrome
+                            ContentPresenter
+                                TextBlock
+                    TextBox
+                        ListBoxChrome
+                            ScrollViewer
+                                Grid
+                                    Rectangle
+                                    ScrollContentPresenter
+                                        TextBoxView
+                                            TextBoxLineDrawingVisual
+                                        AdornerLayer
+                                    Scrollbar
+                                    Scrollbar
+                    ListBox
+                        Border
+                            ScrollViewer
+                                Grid
+                                    Rectangle
+                                    ScrollContentPresenter
+                                        ItemsPresenter
+                                            VirtualizingStackPanel
+                                                ListBoxItem
+                                                    Border
+                                                        ContentPresenter
+                                                            TextBlock
+                                                ListBoxItem
+                                                    Border
+                                                        ContentPresenter
+                                                            TextBlock
+                                        AdornerLayer
+                                    ScrollBar
+                                    Scrollbar
+            AdornerLayer
+```
+
+### How Dependency Properties Are Implemented
+
+Dependency properties in WPF can be used by a client just like regular CLR properties, but they are implemented differently in the defining class.  The added complexity serves to support features like data binding, property inheritance and change notification.
+
+Classes that want to implement a dependency property start by by inherting from DependencyObject, which provides the support for reading and writing dependency property values.
+
+The class then declares a static variable of type DependencyProperty for the new property.  A static instance is created using the DependencyProperty.Register function.  This instance does not store property values, but stores metadata about the property.
+
+```csharp
+public static readonly DependencyProperty AgeProperty =
+    DependencyProperty.Register("Age", typeof(int), typeof(Person));
+```
+
+Dependency property values are managed by the GetValue and SetValue methods inherited from the DependencyObject class.
+
+```csharp
+public int Age
+{
+    get { return (int)GetValue(AgeProperty); }
+    set { SetValue(AgeProperty, value); }
+}
+```
+
+### Registering a Dependency Property
+
+To implement a dependency property, a class will create a single static instance of the DependencyProperty class.  This instance is static because DependencyProperty just describes the dependency property, rather than being a place to store the actual property value.
+
+You start by declaring a static member for the new property.
+
+1
+public static readonly DependencyProperty AgeProperty;
+You typically register the property in a static constructor, using the static DependencyProperty.Register method.
+
+```csharp
+static Person()
+{
+    PropertyMetadata ageMetadata =
+        new PropertyMetadata(
+            18,     // Default value
+            new PropertyChangedCallback(OnAgeChanged),
+            new CoerceValueCallback(OnAgeCoerceValue));
+ 
+    // Register the property
+    AgeProperty =
+        DependencyProperty.Register(
+            "Age",                 // Property's name
+            typeof(int),           // Property's type
+            typeof(Person),        // Defining class' type
+            ageMetadata,           // Defines default value & callbacks  (optional)
+            new ValidateValueCallback(OnAgeValidateValue));   // validation (optional)
+}
+```
+
+The first three parameters passed to Register are required.
+
+You can also specify:
+
+* A default value for the property
+* A method to be called when the property value changes
+* Coercion and validation callbacks
 

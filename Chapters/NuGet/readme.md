@@ -54,6 +54,7 @@
 * [Библиотека ImageSharp](ImageSharp.md)
 * [Библиотека SharpFont](SharpFont.md)
 * [Библиотека Polly](Polly.md)
+* [Библиотека BibtexLibrary](BibtexLibrary.md)
 
 #### Сокровища NuGet
 
