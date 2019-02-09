@@ -55,6 +55,7 @@
 * [Библиотека SharpFont](SharpFont.md)
 * [Библиотека Polly](Polly.md)
 * [Библиотека BibtexLibrary](BibtexLibrary.md)
+* [Библиотека QtSharp](QtSharp.md)
 
 #### Сокровища NuGet
 
