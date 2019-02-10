@@ -56,6 +56,7 @@
 * [Библиотека Polly](Polly.md)
 * [Библиотека BibtexLibrary](BibtexLibrary.md)
 * [Библиотека QtSharp](QtSharp.md)
+* [Библиотека MapsterMapper](Mapster.md)
 
 #### Сокровища NuGet
 
