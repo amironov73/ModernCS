@@ -68,4 +68,32 @@ using (MyDbContext context = new MyDbContext())
 }
 ```
 
+Поддержка Json.Net вынесена в пакет [Mapster.JsonNet](https://www.nuget.org/packages/Mapster.JsonNet/) и включается одной строчкой:
+
+```csharp
+TypeAdapterConfig.GlobalSettings.EnableJsonMapping();
+```
+
+Также имеется поддержка отладки (вынесенная в пакет [Mapster.Diagnostics](https://www.nuget.org/packages/Mapster.Diagnostics/)). Включается такой строчкой:
+
+```csharp
+TypeAdapterConfig.GlobalSettings.EnableDebugging();
+```
+
+В нужный момент надо просто установить
+
+```csharp
+MapsterDebugger.BreakOnEnterAdaptMethod = true;
+var dto = poco.Adapt<SimplePoco, SimpleDto>();
+// Будет вызван отладчик
+```
+
+Можно получить скрипт преобразования:
+
+```csharp
+var script = poco.BuildAdapter()
+                .CreateMapExpression<SimpleDto>()
+                .ToScript();
+```
+
 Производительность вполне на уровне, об этом можно не беспокоиться.
