@@ -41,9 +41,9 @@
 
 * [Expression Trees](Chapters/ExpressionTrees.md)
 
-#### [JetBrains Rider](Chapters/Rider/readme.md)
+#### [DevExpress](Chapters/DevExpress/readme.md)
 
-#### [Roslyn](Chapters/Roslyn/readme.md)
+#### [JetBrains Rider](Chapters/Rider/readme.md)#### [Roslyn](Chapters/Roslyn/readme.md)
 
 #### [WPF](Chapters/WPF/readme.md)
 
