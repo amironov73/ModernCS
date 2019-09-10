@@ -24,6 +24,7 @@
 * [Throw-выражения](Chapters/ThrowExpression.md)
 * [Кортежи](Chapters/Tuples.md)
 * [Локальные функции](Chapters/LocalFunctions.md)
+* [Ref Structs - типы-значения с семантикой ссылочных типов](Chapters/RefStructs.md)
 
 ### C# 6
 
