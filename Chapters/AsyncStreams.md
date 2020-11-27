@@ -70,4 +70,26 @@ class Program
 }
 ```
 
-Здесь важно обратить внимание на конструкцию `async foreach`, которая заставляет компилятор генерировать машину состояний.
+Здесь важно обратить внимание на конструкцию `await foreach`, которая зразворачивается следующим образом:
+
+```c#
+// программист пишет
+await foreach (var item in someEnumerable)
+{
+  // тут делаем что-нибудь
+}
+
+// компилятор разворачивает
+var enumerator = someEnumerable.GetAsyncEnumerator()
+
+while (await enumerator.MoveNextAsync())
+{
+    var item = enumerator.Current;
+    // тут делаем что-нибудь
+}
+
+if (enumerator is IAsyncDisposable)
+{
+   await enumerator.DisposeAsync();
+}
+```
