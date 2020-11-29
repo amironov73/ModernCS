@@ -1,6 +1,7 @@
 ﻿### CallerMemberNameAttribute
 
-В .NET Framework появился замечательный атрибут CallerMemberNameAttribute, с помощью которого легко реализуются подобные трюки:
+В .NET Framework 4.5 появился замечательный атрибут CallerMemberNameAttribute, с помощью которого легко реализуются подобные трюки:
+
 ```csharp
 using System;
 using System.Runtime.CompilerServices;
