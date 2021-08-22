@@ -387,7 +387,7 @@ class MyService : BackgroundService
         {
             _useful.DoSomething();
             _logger.LogInformation("Wasting time");
-            await Task.Delay(TimeSpan.FromSeconds(3));
+            await Task.Delay(TimeSpan.FromSeconds(3), stoppingToken);
         }
     }
 }
@@ -425,5 +425,16 @@ class Program
 .ConfigureContainer((ContainerBuilder builder) =>
 {
     builder.RegisterType<UsefulThing>().As<IUseful>();
+})
+```
+
+Впрочем, можно регистрировать сервисы и "по старинке", так тоже работает:
+
+```c#
+.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+.ConfigureServices(services =>
+{
+    services.AddTransient<IUseful, UsefulThing>();
+    services.AddHostedService<MyService>();
 })
 ```
