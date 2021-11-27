@@ -1,0 +1,14 @@
+﻿{
+  "first": null,
+  "second": true,
+  "third": 1.1,
+  "array": [
+    "value0",
+    "value1",
+    "value2"
+  ],
+  "object": {
+    "fourth": false,
+    "fifth": 5
+  }
+}
