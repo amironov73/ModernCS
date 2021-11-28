@@ -1,0 +1,7 @@
+﻿x1 = 1;
+x2 = 10;
+while (x1 < x2 and x1 < 100)
+{
+    print "in loop", x1;
+    x1 = x1 + 1;
+}

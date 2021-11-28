@@ -1,6 +1,8 @@
 ﻿// ReSharper disable CheckNamespace
 // ReSharper disable MemberCanBePrivate.Global
 
+// Простейший разбор JSON
+
 using System;
 using System.Collections.Generic;
 using System.Globalization;
