@@ -71,7 +71,7 @@ Parser<char> CharExcept (Predicate<char> predicate, string description);
 Считывает любой пробельный символ (в т. ч. перевод строки). По факту представляет собой конструкцию вроде
 
 ```c#
-var whitespaceParser = Parser.Char (char.IsWhitespace, "whitespace);
+var whitespaceParser = Parser.Char (char.IsWhitespace, "whitespace");
 ```
 
 ```c#
@@ -642,6 +642,27 @@ Parser<string> quotedText =
 Assert.Throws<ParseException> (() => quotedText.Parse ("foo"));
 ```
 
+#### Then
+
+Запускает второй парсер, если первый успешно сматчил текст. Возвращается результат второго парсера:
+
+```c#
+Parser<U> Then<T, U> (this Parser<T> first, Func<T, Parser<U>> second);
+```
+
+Пример:
+
+```c#
+Parser<string> identifier = Parse.Identifier (Parse.Letter, Parse.LetterOrDigit);
+
+Parser<string[]> memberAccess =
+    from first in identifier.Once()
+    from subs in Parse.Char ('.').Then (_ => identifier).Many()
+    select first.Concat (subs).ToArray();
+
+Assert.Equal(new [] { "foo", "bar", "baz"}, memberAccess.Parse ("foo.bar.baz"));
+```
+
 #### Not
 
 Конструирует отрицание, т. е. парсер, выбрасывающий исключение, если предшествующий парсер успешно матчит текст.
@@ -655,7 +676,7 @@ Parser<object> Not<T> (this Parser<T> parser);
 ```c#
 Parser<string> Keyword (string text) =>
     Parse.IgnoreCase (text)
-    .Then (n => Parse.Not (Parse.LetterOrDigit.Or (Parse.Char('_')))).Return (text);
+    .Then (n => Parse.Not (Parse.LetterOrDigit.Or (Parse.Char ('_')))).Return (text);
 
 Parser<string> returnKeyword = Keyword ("return");
 
@@ -744,6 +765,148 @@ Parser<string> sample =
 
 Assert.Equal ("aaabbb", sample.Parse (" aaa bbb "));
 Assert.Throws<ParseException>(() => sample.Parse(" aaaaaaa      bbbbbb "));
+```
+
+#### Positioned
+
+Если нужна информация о позиции разбираемых символов в тексте, необходимо применить метод `Positioned`. Значения, возвращаемые парсером, должны реализовывать интерфейс `IPositionAware`:
+
+```c#
+enum BinaryOperator
+{
+    Add,
+    Subtract
+}
+
+class Node : IPositionAware<Node>
+{
+    public int Length { get; protected set; }
+    public Position StartPos { get; protected set; }
+
+    public Node SetPos (Position startPos, int length)
+    {
+        Length = length;
+        StartPos = startPos;
+        return this;
+    }
+}
+
+class Literal : Node, IPositionAware<Literal>
+{
+    public int Value { get; }
+
+    public Literal (int value)
+    {
+        Value = value;
+    }
+
+    public static Literal Create (string value) => 
+        new Literal (int.Parse (value));
+
+    public new Literal SetPos (Position startPos, int length) => 
+        (Literal) base.SetPos (startPos, length);
+}
+
+class BinaryExpression : Node, IPositionAware<BinaryExpression>
+{
+    public BinaryOperator Op { get; }
+    public Node Left { get; }
+    public Node Right { get; }
+
+    public BinaryExpression (BinaryOperator op, Node left, Node right)
+    {
+        Op = op;
+        Left = left;
+        Right = right;
+    }
+
+    public static Node Create (BinaryOperator op, Node left, Node right) => 
+        new BinaryExpression (op, left, right);
+
+    public new BinaryExpression SetPos(Position startPos, int length) => 
+        (BinaryExpression) base.SetPos (startPos, length);
+}
+
+static readonly Parser<BinaryOperator> Add = 
+    Parse.Char ('+').Token().Return (BinaryOperator.Add);
+    
+static readonly Parser<BinaryOperator> Subtract = 
+    Parse.Char ('-').Token().Return (BinaryOperator.Subtract);
+static readonly Parser<Node> Number = 
+    Parse.Number.Token().Select (Literal.Create).Positioned();
+
+static readonly Parser<Node> Expr = Parse.ChainOperator(
+    Add.Or (Subtract), Number, BinaryExpression.Create).Positioned();
+
+[Fact]
+public void PositionTest()
+{
+    var aaa = (BinaryExpression) Expr.Parse ("1 + 2");
+
+    Assert.Equal (4, aaa.Right.StartPos.Pos);
+}
+```
+
+#### Ref
+
+Учитывая, что разрабатываемая с помощью Sprache грамматики могут (и, скорее всего, будут) содержать рекурсивные правила, необходимо как-то разрешать кольцевые ссылки. Рекомендуемый способ - метод `Ref`:
+
+```c#
+Parser<T> Ref<T> (Func<Parser<T>> reference);
+```
+
+Пример:
+
+```c#
+public static readonly Parser<float> Integer =
+    Parse.Number.Token().Select (float.Parse);
+
+public static readonly Parser<float> PrimaryExpression =
+    Integer.Or (Parse.Ref (() => AdditiveExpression).Contained (Parse.Char('('), Parse.Char(')')));
+
+public static readonly Parser<float> MultiplicativeExpression =
+    Parse.ChainOperator (Parse.Char ('*'), PrimaryExpression, (c, left, right) => left * right);
+
+public static readonly Parser<float> AdditiveExpression =
+    Parse.ChainOperator (Parse.Char ('+'), MultiplicativeExpression, (c, left, right) => left + right);
+
+[Fact]
+public void bbb()
+{
+    Assert.Equal (2, AdditiveExpression.End().Parse ("1+1"));
+}
+```
+
+#### Except
+
+Парсинг продолжается только при условии, что парсер `except` не срабатывает:
+
+```c#
+Parser<T> Except<T, U> (this Parser<T> parser, Parser<U> except);
+```
+
+Пример:
+
+```c#
+const char Quote = '\'';
+const char OpenCurly = '{';
+const char CloseCurly = '}';
+const char Comma = ',';
+const char EqualSign = '=';
+
+Parser<char> validChars = Parse.AnyChar.Except (Parse.Chars (Quote, OpenCurly, CloseCurly, EqualSign, Comma)
+.Or (Parse.WhiteSpace));
+
+Assert.Equal ('t', validChars.Parse("t"));
+Assert.Throws<ParseException>(() => validChars.Parse (" "));
+```
+
+#### Preview
+
+Указывает, что данный парсер является опциональным и не-потребляющим. Результирующий парсер выдает успех независимо от того, сработал ли Preview-парсер.
+
+```c#
+Parser<IOption<T>> Preview<T> (this Parser<T> parser);
 ```
 
 Еще статьи:
