@@ -275,3 +275,63 @@ Welcome to your new app.
     }
 }
 ```
+
+### TODO List
+
+Теперь попробуем добавить страничку с простейшим списком дел:
+
+```html
+@page "/todo"
+
+<PageTitle>What to do</PageTitle>
+
+<h3 class="alert alert-info">What to do</h3>
+
+<ul>
+    @foreach (var todo in _todos)
+    {
+        <div class="col-4">
+            <input type="checkbox" @bind="todo.IsDone"/>
+            <input @bind="todo.Title"/>
+            <button @onclick="() => _todos.Remove (todo)">x</button>
+        </div>
+    }
+</ul>
+
+<br/>
+
+<h4>How many: @(_todos.Count (todo => !todo.IsDone))</h4>
+
+<br/>
+
+<input placeholder="Something todo" @bind="_newTodo"/>
+<button class="btn btn-primary" @onclick="AddTodo">Add todo</button>
+
+@code
+{
+    internal sealed class TodoItem
+    {
+        public string? Title { get; set; }
+        public bool IsDone { get; set; }
+    }
+    
+    private readonly List<TodoItem> _todos = new();
+    private string? _newTodo;
+
+    protected override void OnInitialized()
+    {
+        _todos.Add (new() { Title = "Read one book" });
+        _todos.Add (new() { Title = "Read one more book" });
+        _todos.Add (new() { Title = "And all the rest" });
+    }
+    
+    private void AddTodo()
+    {
+        if (!string.IsNullOrEmpty (_newTodo))
+        {
+            _todos.Add (new TodoItem { Title = _newTodo });
+            _newTodo = string.Empty;
+        }
+    }
+}
+```
