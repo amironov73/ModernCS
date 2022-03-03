@@ -288,24 +288,57 @@ Welcome to your new app.
 <h3 class="alert alert-info">What to do</h3>
 
 <ul>
-    @foreach (var todo in _todos)
-    {
-        <div class="col-4">
-            <input type="checkbox" @bind="todo.IsDone"/>
-            <input @bind="todo.Title"/>
-            <button @onclick="() => _todos.Remove (todo)">x</button>
+    <div class="row">
+        <div class="col-4 offset-4">
+            <table class="table table-striped table-hover">
+                <thead class="table-primary bg-gradient">
+                <tr>
+                    <th class="text-center">Done</th>
+                    <th>What to do</th>
+                    <th class="text-center">x</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                @foreach (var todo in _todos)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <input class="form-check-input" type="checkbox" @bind="todo.IsDone"/>
+                        </td>
+                        <td>
+                            <input class="form-control" @bind="todo.Title"/>
+                        </td>
+                        <td class="text-center">
+                            <button class="btn btn-outline-primary btn-sm"
+                                    @onclick="() => _todos.Remove (todo)">
+                                x
+                            </button>
+                        </td>
+                    </tr>
+                }
+
+                </tbody>
+
+                <tfoot>
+                <tr class="table-primary bg-gradient">
+                    <td class="text-primary text-center" style="font-weight: bold;">
+                        @(_todos.Count (todo => !todo.IsDone))
+                    </td>
+                    <td>
+                        <input class="form-control" placeholder="Something todo" @bind="_newTodo"/>
+                    </td>
+                    <td class="text-center">
+                        <button class="btn btn-primary" @onclick="AddTodo">Add</button>
+                    </td>
+                </tr>
+                </tfoot>
+
+            </table>
         </div>
-    }
+    </div>
 </ul>
 
-<br/>
-
-<h4>How many: @(_todos.Count (todo => !todo.IsDone))</h4>
-
-<br/>
-
-<input placeholder="Something todo" @bind="_newTodo"/>
-<button class="btn btn-primary" @onclick="AddTodo">Add todo</button>
 
 @code
 {
@@ -314,7 +347,7 @@ Welcome to your new app.
         public string? Title { get; set; }
         public bool IsDone { get; set; }
     }
-    
+
     private readonly List<TodoItem> _todos = new();
     private string? _newTodo;
 
@@ -324,7 +357,7 @@ Welcome to your new app.
         _todos.Add (new() { Title = "Read one more book" });
         _todos.Add (new() { Title = "And all the rest" });
     }
-    
+
     private void AddTodo()
     {
         if (!string.IsNullOrEmpty (_newTodo))
