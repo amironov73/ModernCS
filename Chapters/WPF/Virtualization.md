@@ -43,7 +43,7 @@ namespace WpfApp1
         {
             InitializeComponent();
  
-            var list = new List&l;string> (100_000);
+            var list = new List<string> (100_000);
             for (var i = 0; i < list.Capacity; i++)
             {
                 list.Add ($"Файл номер {i:000000}");
