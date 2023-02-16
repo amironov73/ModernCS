@@ -11,9 +11,9 @@ dotnet new web
 ```csharp
 var builder = WebApplication.CreateBuilder (args);
 var app = builder.Build();
- 
+
 app.MapGet ("/", () => "Hello World!");
- 
+
 app.Run();
 ```
 
@@ -21,13 +21,28 @@ app.Run();
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
+
+// подключаем Razor-сервисы
 builder.Services.AddRazorPages();
- 
+
 var app = builder.Build();
+
+// включаем маршрутизацию для Razor-страниц
 app.MapRazorPages();
- 
+
 app.Run();
 ```
+
+При желании в момент подключения Razor-сервисов мы можем задать опции
+
+```csharp
+builder.Services.AddRazorPages (options => {
+  options.Conventions.Add (new MyPageModelConvention());
+  options.RootDirectory = "MyPages";
+});
+```
+
+Как правило, в этом не возникает необходимости.
 
 Теперь создаем пустую Razor-страницу
 
@@ -42,12 +57,22 @@ dotnet new page --name Index --output Pages
 @model MyApp.Namespace.IndexModel
 @{
 }
- 
+
 <h3>Hello, Razor</h3>
 <p>Now: @DateTime.Now</p>
 ```
 
-Запускаем и любуемся:
+При создании Razor-страницы можно указать следующие опции:
+
+* **-p:n, --namespace <namespace>**
+
+Пространство имен для созданного кода. Тип: `string`. По умолчанию: `MyApp.Namespace`.
+
+* **-np, --no-pagemodel**
+
+Создание страницы без модели. Тип: `bool`. По умолчанию: `false`.
+
+Запускаем наше приложение и любуемся:
 
 ```
 dotnet run
@@ -60,9 +85,9 @@ dotnet run
 @model MyApp.Namespace.IndexModel
 @{
 }
- 
+
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
- 
+
 <div class="container">
   <h3>Hello, Razor</h3>
   <p>Now: @DateTime.Now</p>
