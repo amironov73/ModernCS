@@ -16,7 +16,7 @@
 
 Получает или задает сообщение об ошибке, которое необходимо связать с проверяющим элементом управления на случай сбоя во время проверки.
 
-* **OtherProperty***
+* **OtherProperty**
 
 Получает свойство, с которым будет сравниваться текущее свойство.
 
@@ -40,7 +40,7 @@
 
 Задает пользовательский метод проверки свойства или класса экземпляра.
 
-Атрибут `CustomValidationAttribute` используется для выполнения пользовательской проверки при `IsValid` вызове метода для выполнения проверки. Затем `IsValid` метод перенаправляет вызов метода, определяемого свойством `Method`, который, в свою очередь, выполняет фактическую проверку.
+Атрибут `CustomValidationAttribute` используется для выполнения пользовательской проверки при вызове метода `IsValid`. Метод `IsValid` перенаправляет вызов в метод, определяемый свойством `Method`, который, в свою очередь, выполняет фактическую проверку.
 
 Атрибут `CustomValidationAttribute` можно применять к типам, свойствам, полям, методам и параметрам метода. При применении к свойству атрибут вызывается каждый раз, когда ему присваивается значение. При применении к методу атрибут вызывается всякий раз, когда программа вызывает этот метод. При применении к параметру метода атрибут вызывается перед вызовом метода.
 
@@ -174,20 +174,19 @@ public partial class Product
 
 public class ProductMetaData
 {
-    
     // Applying DisplayFormatAttribute
     // Display the text [Null] when the data field is empty.
     // Also, convert empty string to null for storing.
-    [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "[Null]")]
+    [DisplayFormat (ConvertEmptyStringToNull = true, NullDisplayText = "[Null]")]
     public object Size;
 
     // Display currency data field in the format $1,345.50.
-    [DisplayFormat(DataFormatString="{0:C}")]
+    [DisplayFormat (DataFormatString="{0:C}")]
     public object StandardCost;
 
     // Display date data field in the short format 11/12/08.
     // Also, apply format in edit mode.
-    [DisplayFormat(ApplyFormatInEditMode=true, DataFormatString = "{0:d}")]
+    [DisplayFormat (ApplyFormatInEditMode=true, DataFormatString = "{0:d}")]
     public object SellStartDate;
 }
 ```
@@ -381,7 +380,7 @@ public class CustomerMetaData
 
 Служит базовым классом для всех атрибутов проверки.
 
-Свойства
+Свойства:
 
 * **ErrorMessage**
 
@@ -394,6 +393,7 @@ public class CustomerMetaData
 Методы:
 
 * **FormatErrorMessage (String)**
+
 Применяет к сообщению об ошибке форматирование на основе поля данных, в котором произошла ошибка.
 
 * **GetValidationResult (Object, ValidationContext)**
@@ -424,7 +424,7 @@ public class CustomerMetaData
 
 Контекст, в котором проводится проверка.
 
-Этот класс описывает тип или член, для которого выполняется проверка. Она также позволяет добавлять пользовательскую проверку с помощью любой службы, реализующей `IServiceProvider` интерфейс.
+Этот класс описывает тип или член, для которого выполняется проверка. Она также позволяет добавлять пользовательскую проверку с помощью любой службы, реализующей интерфейс `IServiceProvider`.
 
 #### ValidationException
 
